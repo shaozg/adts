@@ -71,8 +71,8 @@ void get_variable_header(const unsigned char buff[7], adts_variable_header *head
     header->number_of_raw_data_blocks_in_frame = adts & 0x03;
 }
 
-void convert_adts_header2int64(const adts_fixed_header *fixed_header, const adts_variable_header *variable_header, u_int64_t *header) {
-    u_int64_t ret_value = 0;
+void convert_adts_header2int64(const adts_fixed_header *fixed_header, const adts_variable_header *variable_header, uint64_t *header) {
+    uint64_t ret_value = 0;
     ret_value = fixed_header->syncword;
     ret_value <<= 1;
     ret_value |= fixed_header->id;

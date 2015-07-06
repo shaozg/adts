@@ -10,6 +10,7 @@
 #define __AdtsHeader__adts__
 
 #include <stdio.h>
+#include <stdint.h>
 
 /*
  * ADTS 全称: Audio Data Transport Stream. 是 AAC音频的传输流格式.
@@ -53,7 +54,7 @@ extern void get_variable_header(const unsigned char buff[7], adts_variable_heade
 
 
 // 将adts头信息转化为一个64位的整数, PS: 前面8位空着
-extern void convert_adts_header2int64(const adts_fixed_header *fixed_header, const adts_variable_header *variable_header, u_int64_t *header);
+extern void convert_adts_header2int64(const adts_fixed_header *fixed_header, const adts_variable_header *variable_header, uint64_t *header);
 
 // 将adts头信息转化为一个7字节的buff
 extern void convert_adts_header2char(const adts_fixed_header *fixed_header, const adts_variable_header *variable_header, unsigned char buffer[7]);
