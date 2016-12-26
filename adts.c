@@ -47,7 +47,7 @@ void get_fixed_header(const unsigned char buff[7], adts_fixed_header *header) {
     header->layer                    = (adts >> 41) & 0x03;
     header->protection_absent        = (adts >> 40) & 0x01;
     header->profile                  = (adts >> 38) & 0x03;
-    header->sampling_frequency_index = (adts >> 34) & 0x0e;
+    header->sampling_frequency_index = (adts >> 34) & 0x0f;
     header->private_bit              = (adts >> 33) & 0x01;
     header->channel_configuration    = (adts >> 30) & 0x07;
     header->original_copy            = (adts >> 29) & 0x01;
@@ -83,7 +83,7 @@ void convert_adts_header2int64(const adts_fixed_header *fixed_header, const adts
     ret_value <<= 2;
     ret_value |= fixed_header->profile;
     ret_value <<= 4;
-    ret_value |= (fixed_header->sampling_frequency_index) & 0x0e;
+    ret_value |= (fixed_header->sampling_frequency_index) & 0x0f;
     ret_value <<= 1;
     ret_value |= (fixed_header->private_bit) & 0x01;
     ret_value <<= 3;
